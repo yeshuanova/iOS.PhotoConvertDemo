@@ -50,6 +50,7 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         
         photo_view.image = photo_src;
         
+        OCV_Wrapper.ocv_test(10);
     }
     
     

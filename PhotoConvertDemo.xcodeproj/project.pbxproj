@@ -15,6 +15,7 @@
 		C48E10AA1B7DD9C3000FF533 /* PhotoConvertDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E10A91B7DD9C3000FF533 /* PhotoConvertDemoTests.swift */; };
 		C48E10B41B7DD9F8000FF533 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48E10B31B7DD9F8000FF533 /* opencv2.framework */; };
 		C48E10B61B7DDC80000FF533 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */; };
+		C48E10B91B7DE926000FF533 /* OCV_Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,9 @@
 		C48E10A91B7DD9C3000FF533 /* PhotoConvertDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoConvertDemoTests.swift; sourceTree = "<group>"; };
 		C48E10B31B7DD9F8000FF533 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../Librarys/opencv_ios/opencv2.framework; sourceTree = "<group>"; };
 		C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
+		C48E10B71B7DE926000FF533 /* PhotoConvertDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoConvertDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCV_Wrapper.mm; sourceTree = "<group>"; };
+		C48E10BA1B7DE944000FF533 /* OCV_Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCV_Wrapper.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,10 +90,13 @@
 				C48E10931B7DD9C3000FF533 /* AppDelegate.swift */,
 				C48E10951B7DD9C3000FF533 /* ViewController.swift */,
 				C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */,
+				C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */,
+				C48E10BA1B7DE944000FF533 /* OCV_Wrapper.h */,
 				C48E10971B7DD9C3000FF533 /* Main.storyboard */,
 				C48E109A1B7DD9C3000FF533 /* Images.xcassets */,
 				C48E109C1B7DD9C3000FF533 /* LaunchScreen.xib */,
 				C48E10911B7DD9C3000FF533 /* Supporting Files */,
+				C48E10B71B7DE926000FF533 /* PhotoConvertDemo-Bridging-Header.h */,
 			);
 			path = PhotoConvertDemo;
 			sourceTree = "<group>";
@@ -220,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48E10B91B7DE926000FF533 /* OCV_Wrapper.mm in Sources */,
 				C48E10961B7DD9C3000FF533 /* ViewController.swift in Sources */,
 				C48E10B61B7DDC80000FF533 /* TakePhotoViewController.swift in Sources */,
 				C48E10941B7DD9C3000FF533 /* AppDelegate.swift in Sources */,
@@ -351,6 +359,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -359,6 +368,8 @@
 				INFOPLIST_FILE = PhotoConvertDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoConvertDemo/PhotoConvertDemo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -366,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -374,6 +386,7 @@
 				INFOPLIST_FILE = PhotoConvertDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "PhotoConvertDemo/PhotoConvertDemo-Bridging-Header.h";
 			};
 			name = Release;
 		};
