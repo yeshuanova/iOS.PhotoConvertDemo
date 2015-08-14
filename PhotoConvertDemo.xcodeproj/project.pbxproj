@@ -13,6 +13,8 @@
 		C48E109B1B7DD9C3000FF533 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48E109A1B7DD9C3000FF533 /* Images.xcassets */; };
 		C48E109E1B7DD9C3000FF533 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C48E109C1B7DD9C3000FF533 /* LaunchScreen.xib */; };
 		C48E10AA1B7DD9C3000FF533 /* PhotoConvertDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E10A91B7DD9C3000FF533 /* PhotoConvertDemoTests.swift */; };
+		C48E10B41B7DD9F8000FF533 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48E10B31B7DD9F8000FF533 /* opencv2.framework */; };
+		C48E10B61B7DDC80000FF533 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +38,8 @@
 		C48E10A31B7DD9C3000FF533 /* PhotoConvertDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoConvertDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48E10A81B7DD9C3000FF533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C48E10A91B7DD9C3000FF533 /* PhotoConvertDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoConvertDemoTests.swift; sourceTree = "<group>"; };
+		C48E10B31B7DD9F8000FF533 /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = opencv2.framework; path = ../../../Librarys/opencv_ios/opencv2.framework; sourceTree = "<group>"; };
+		C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TakePhotoViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48E10B41B7DD9F8000FF533 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +64,7 @@
 		C48E10851B7DD9C3000FF533 = {
 			isa = PBXGroup;
 			children = (
+				C48E10B31B7DD9F8000FF533 /* opencv2.framework */,
 				C48E10901B7DD9C3000FF533 /* PhotoConvertDemo */,
 				C48E10A61B7DD9C3000FF533 /* PhotoConvertDemoTests */,
 				C48E108F1B7DD9C3000FF533 /* Products */,
@@ -79,6 +85,7 @@
 			children = (
 				C48E10931B7DD9C3000FF533 /* AppDelegate.swift */,
 				C48E10951B7DD9C3000FF533 /* ViewController.swift */,
+				C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */,
 				C48E10971B7DD9C3000FF533 /* Main.storyboard */,
 				C48E109A1B7DD9C3000FF533 /* Images.xcassets */,
 				C48E109C1B7DD9C3000FF533 /* LaunchScreen.xib */,
@@ -161,6 +168,7 @@
 				TargetAttributes = {
 					C48E108D1B7DD9C3000FF533 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 4L2622GP3G;
 					};
 					C48E10A21B7DD9C3000FF533 = {
 						CreatedOnToolsVersion = 6.4;
@@ -213,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C48E10961B7DD9C3000FF533 /* ViewController.swift in Sources */,
+				C48E10B61B7DDC80000FF533 /* TakePhotoViewController.swift in Sources */,
 				C48E10941B7DD9C3000FF533 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +351,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)s/opencv_ios",
+				);
 				INFOPLIST_FILE = PhotoConvertDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,6 +366,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)s/opencv_ios",
+				);
 				INFOPLIST_FILE = PhotoConvertDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -411,6 +430,7 @@
 				C48E10AF1B7DD9C3000FF533 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C48E10B01B7DD9C3000FF533 /* Build configuration list for PBXNativeTarget "PhotoConvertDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +439,7 @@
 				C48E10B21B7DD9C3000FF533 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
