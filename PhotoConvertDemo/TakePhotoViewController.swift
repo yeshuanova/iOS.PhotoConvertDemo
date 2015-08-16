@@ -25,7 +25,7 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         image_picker = UIImagePickerController();
         image_picker.delegate = self;
         image_picker.sourceType = UIImagePickerControllerSourceType.Camera;
-        image_picker.editing = true;
+        image_picker.allowsEditing = true;
         
     }
     
@@ -39,18 +39,19 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
     }
     
     @IBAction func clearPhoto(sender: UIBarButtonItem) {
-        photo_view.image = nil;
+        photo_view.image = photo_src;
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+
         picker.dismissViewControllerAnimated(true, completion: nil);
         
         photo_src = info[UIImagePickerControllerOriginalImage] as? UIImage;
         photo_edit = info[UIImagePickerControllerEditedImage] as? UIImage;
         
-        photo_view.image = photo_src;
+//        photo_edit = OCV_Wrapper.ocvGrayConvert(photo_src);
+//        photo_view.image = photo_edit;
         
-        OCV_Wrapper.ocv_test(10);
     }
     
     

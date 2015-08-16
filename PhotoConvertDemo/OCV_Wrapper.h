@@ -15,6 +15,7 @@
 @interface OCV_Wrapper : NSObject
 
 + (UIImage*)ocvGrayConvert:(UIImage*)img;
++ (UIImage*)ocvBinaryConvert:(UIImage*)img threshhold:(float)value;
 + (void)ocv_test:(NSInteger)num;
 
 @end

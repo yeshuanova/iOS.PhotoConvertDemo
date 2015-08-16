@@ -95,8 +95,8 @@
 				C48E10971B7DD9C3000FF533 /* Main.storyboard */,
 				C48E109A1B7DD9C3000FF533 /* Images.xcassets */,
 				C48E109C1B7DD9C3000FF533 /* LaunchScreen.xib */,
-				C48E10911B7DD9C3000FF533 /* Supporting Files */,
 				C48E10B71B7DE926000FF533 /* PhotoConvertDemo-Bridging-Header.h */,
+				C48E10911B7DD9C3000FF533 /* Supporting Files */,
 			);
 			path = PhotoConvertDemo;
 			sourceTree = "<group>";
