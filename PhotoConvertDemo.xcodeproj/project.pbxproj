@@ -16,6 +16,7 @@
 		C48E10B41B7DD9F8000FF533 /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C48E10B31B7DD9F8000FF533 /* opencv2.framework */; };
 		C48E10B61B7DDC80000FF533 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */; };
 		C48E10B91B7DE926000FF533 /* OCV_Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */; };
+		C4C282761B817B4A0017D5FB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C4C282751B817B4A0017D5FB /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		C48E10B71B7DE926000FF533 /* PhotoConvertDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PhotoConvertDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCV_Wrapper.mm; sourceTree = "<group>"; };
 		C48E10BA1B7DE944000FF533 /* OCV_Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCV_Wrapper.h; sourceTree = "<group>"; };
+		C4C282751B817B4A0017D5FB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,11 +94,11 @@
 				C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */,
 				C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */,
 				C48E10BA1B7DE944000FF533 /* OCV_Wrapper.h */,
-				C48E10971B7DD9C3000FF533 /* Main.storyboard */,
 				C48E109A1B7DD9C3000FF533 /* Images.xcassets */,
-				C48E109C1B7DD9C3000FF533 /* LaunchScreen.xib */,
 				C48E10B71B7DE926000FF533 /* PhotoConvertDemo-Bridging-Header.h */,
+				C4C282771B817B6A0017D5FB /* UILayout */,
 				C48E10911B7DD9C3000FF533 /* Supporting Files */,
+				C4C282751B817B4A0017D5FB /* README.md */,
 			);
 			path = PhotoConvertDemo;
 			sourceTree = "<group>";
@@ -124,6 +126,15 @@
 				C48E10A81B7DD9C3000FF533 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C4C282771B817B6A0017D5FB /* UILayout */ = {
+			isa = PBXGroup;
+			children = (
+				C48E10971B7DD9C3000FF533 /* Main.storyboard */,
+				C48E109C1B7DD9C3000FF533 /* LaunchScreen.xib */,
+			);
+			name = UILayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 			files = (
 				C48E10B91B7DE926000FF533 /* OCV_Wrapper.mm in Sources */,
 				C48E10961B7DD9C3000FF533 /* ViewController.swift in Sources */,
+				C4C282761B817B4A0017D5FB /* README.md in Sources */,
 				C48E10B61B7DDC80000FF533 /* TakePhotoViewController.swift in Sources */,
 				C48E10941B7DD9C3000FF533 /* AppDelegate.swift in Sources */,
 			);

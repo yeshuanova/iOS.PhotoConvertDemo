@@ -24,10 +24,16 @@
                                             <action selector="takePhoto:" destination="BYZ-38-t0r" id="a1M-EX-ccL"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="wpj-Qq-79j"/>
+                                    <barButtonItem title="Convert" id="Bz6-ZK-LAP">
+                                        <connections>
+                                            <action selector="openSwitchPicker:" destination="BYZ-38-t0r" id="7ZQ-Z3-hnp"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NfK-3x-0hy"/>
                                     <barButtonItem title="Reset" id="PDh-64-8qp">
                                         <connections>
-                                            <action selector="clearPhoto:" destination="BYZ-38-t0r" id="aPS-XT-qes"/>
+                                            <action selector="resetPhoto:" destination="BYZ-38-t0r" id="orh-sJ-zFC"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -49,6 +55,7 @@
                     </view>
                     <connections>
                         <outlet property="clear_btn" destination="PDh-64-8qp" id="esb-Ug-7vh"/>
+                        <outlet property="conv_btn" destination="Bz6-ZK-LAP" id="GDZ-0K-dgQ"/>
                         <outlet property="photo_view" destination="6Si-F9-NvN" id="Hqr-qA-qYa"/>
                         <outlet property="take_photo_btn" destination="hvq-jF-NQc" id="GJG-w1-LlD"/>
                     </connections>

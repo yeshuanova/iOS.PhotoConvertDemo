@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "OCV_Wrapper.h"
 
-//#include <opencv2/core.hpp>
-//#include <opencv2/imgproc.hpp>
 #include <opencv2/opencv.hpp>
 
 #include <vector>
@@ -23,17 +21,12 @@ using namespace std;
 + (UIImage*)ocvGrayConvert:(UIImage *)img {
     
     try {
-
         auto img_mat = [OCV_Wrapper cvMatFromUIImage:img];
-        
         Mat conv_mat(img_mat.size(), CV_8UC1);
-        
         cv::cvtColor(img_mat, conv_mat, cv::COLOR_RGB2GRAY);
-        
-        UIImage *new_img = [OCV_Wrapper UIImageFromCVMat:conv_mat];
-        
-        return new_img;
-        
+        return [OCV_Wrapper UIImageFromCVMat:conv_mat];
+    } catch (cv::Exception& e) {
+        cout << "cv::Exception: " << e.what() << endl;
     } catch (std::exception& e) {
         cout << "std::exception: " << e.what() << endl;
     } catch (...) {
