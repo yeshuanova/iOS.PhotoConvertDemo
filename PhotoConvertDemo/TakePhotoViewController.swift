@@ -43,7 +43,6 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         image_picker = UIImagePickerController();
         image_picker.delegate = self;
         image_picker.sourceType = UIImagePickerControllerSourceType.Camera;
-        image_picker.allowsEditing = true;
         
     }
     
@@ -95,32 +94,54 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         self.show_type = type;
         self.conv_btn.title = show_type.description;
         
+        println("Show \(type.description) image");
+        
         switch type {
         case .Origin:
             self.photo_view.image = self.photo_src;
+            println("photo_src info");
+            self.showUIImageInfo(self.photo_src);
         case .Grayscale:
             self.photo_edit = OCV_Wrapper.ocvGrayConvert(self.photo_src);
             self.photo_view.image = self.photo_edit;
+            
+            println("photo_edit info");
+            showUIImageInfo(self.photo_edit);
         default:
             println("Not exist type");
         }
         
-        if let img = self.photo_view.image {
-            println("Photo, width : \(img.size.width), height : \(img.size.height)" );
+        println("photo_view info");
+        showUIImageInfo(self.photo_view.image);
+    }
+    
+    func showUIImageInfo(img:UIImage!) {
+        if nil != img {
+            println("Photo, width: \(img.size.width), height: \(img.size.height), orientation: \(img.imageOrientation.rawValue) ");
         }
+    }
 
+    func normalizedImage(image:UIImage!) -> UIImage {
+        
+        if (image.imageOrientation == UIImageOrientation.Up) {
+            return image;
+        }
+        
+        UIGraphicsBeginImageContextWithOptions(image.size, false, image.scale);
+        let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
+        image.drawInRect(rect)
+        
+        var normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        return normalizedImage;
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
 
         picker.dismissViewControllerAnimated(true, completion: nil);
-        
         photo_src = info[UIImagePickerControllerOriginalImage] as? UIImage;
-        photo_edit = info[UIImagePickerControllerEditedImage] as? UIImage;
-        
+        photo_src = normalizedImage(photo_src); // Fix photo orientation for image conversion.
         setPhotoWithType(self.show_type);
-//        self.photo_edit = OCV_Wrapper.ocvGrayConvert(self.photo_src);
-//        self.photo_view.image = self.photo_edit;
     }
     
 }

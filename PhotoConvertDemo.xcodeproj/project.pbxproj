@@ -17,6 +17,7 @@
 		C48E10B61B7DDC80000FF533 /* TakePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */; };
 		C48E10B91B7DE926000FF533 /* OCV_Wrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */; };
 		C4C282761B817B4A0017D5FB /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = C4C282751B817B4A0017D5FB /* README.md */; };
+		C4C282791B82CFE20017D5FB /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4C282781B82CFE20017D5FB /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCV_Wrapper.mm; sourceTree = "<group>"; };
 		C48E10BA1B7DE944000FF533 /* OCV_Wrapper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OCV_Wrapper.h; sourceTree = "<group>"; };
 		C4C282751B817B4A0017D5FB /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		C4C282781B82CFE20017D5FB /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4C282791B82CFE20017D5FB /* AssetsLibrary.framework in Frameworks */,
 				C48E10B41B7DD9F8000FF533 /* opencv2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +73,7 @@
 		C48E10851B7DD9C3000FF533 = {
 			isa = PBXGroup;
 			children = (
+				C4C282781B82CFE20017D5FB /* AssetsLibrary.framework */,
 				C48E10B31B7DD9F8000FF533 /* opencv2.framework */,
 				C48E10901B7DD9C3000FF533 /* PhotoConvertDemo */,
 				C48E10A61B7DD9C3000FF533 /* PhotoConvertDemoTests */,
@@ -92,8 +96,8 @@
 				C48E10931B7DD9C3000FF533 /* AppDelegate.swift */,
 				C48E10951B7DD9C3000FF533 /* ViewController.swift */,
 				C48E10B51B7DDC80000FF533 /* TakePhotoViewController.swift */,
-				C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */,
 				C48E10BA1B7DE944000FF533 /* OCV_Wrapper.h */,
+				C48E10B81B7DE926000FF533 /* OCV_Wrapper.mm */,
 				C48E109A1B7DD9C3000FF533 /* Images.xcassets */,
 				C48E10B71B7DE926000FF533 /* PhotoConvertDemo-Bridging-Header.h */,
 				C4C282771B817B6A0017D5FB /* UILayout */,

@@ -21,10 +21,14 @@ using namespace std;
 + (UIImage*)ocvGrayConvert:(UIImage *)img {
     
     try {
-        auto img_mat = [OCV_Wrapper cvMatFromUIImage:img];
+        
+        Mat img_mat = [OCV_Wrapper cvMatFromUIImage:img];
         Mat conv_mat(img_mat.size(), CV_8UC1);
+        
         cv::cvtColor(img_mat, conv_mat, cv::COLOR_RGB2GRAY);
+        
         return [OCV_Wrapper UIImageFromCVMat:conv_mat];
+        
     } catch (cv::Exception& e) {
         cout << "cv::Exception: " << e.what() << endl;
     } catch (std::exception& e) {
