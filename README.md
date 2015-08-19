@@ -5,13 +5,14 @@ This is a simple demo for image color conversion in iOS platform using OpenCV wi
 
 You can take a photo or load image for Photo Library. Image will show in center view and fit size automatically.
 
-<img src="doc/pic/screen.jpg" alt="origin" style="width: 150px;"/>
- Original image
-
-<img src="doc/pic/origin_photo.jpg" alt="origin" style="width: 150px;"/> Loading to application
-
-<img src="doc/pic/grayscale_photo.jpg" alt="grayscale" style="width: 150px;"/> Conversion result
+<img src="doc/pic/screen.jpg" alt="origin" width="240"/>  Original image
 
 
-#Reference
+
+<img src="doc/pic/origin_photo.jpg" alt="origin" width="240"/> Loading to application
+
+<img src="doc/pic/grayscale_photo.jpg" alt="grayscale" width="240"/> Conversion result
+
+
+## Reference
 - [OpenCV Website](http://opencv.org/)
