@@ -12,6 +12,7 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
     
     @IBOutlet weak var photo_view: UIImageView!
     @IBOutlet weak var take_photo_btn: UIBarButtonItem!
+    @IBOutlet weak var take_photo_lib_btn: UIBarButtonItem!
     @IBOutlet weak var clear_btn: UIBarButtonItem!
     @IBOutlet weak var conv_btn: UIBarButtonItem!
     
@@ -23,15 +24,11 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
     enum ShowType : Printable {
         case Origin
         case Grayscale
-        case Binary
-        case Smooth
         
         var description : String {
             switch self {
             case .Origin: return "Origin";
             case .Grayscale: return "Grayscale";
-            case .Binary: return "Binary";
-            case .Smooth: return "Smooth";
             }
         }
     }
@@ -40,21 +37,31 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        UIApplication.sharedApplication().statusBarHidden = true;
+        
         image_picker = UIImagePickerController();
         image_picker.delegate = self;
-        image_picker.sourceType = UIImagePickerControllerSourceType.Camera;
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true;
+    }
 
     @IBAction func takePhoto(sender: UIBarButtonItem) {
+        image_picker.sourceType = UIImagePickerControllerSourceType.Camera;
         presentViewController(image_picker, animated: true, completion: nil);
     }
 
+    @IBAction func takePhotoFromLib(sender: UIBarButtonItem) {
+        image_picker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary;
+        presentViewController(image_picker, animated: true, completion: nil);
+    }
+    
     @IBAction func clearPhoto(sender: UIBarButtonItem) {
         photo_src = nil;
         photo_edit = nil;
@@ -101,20 +108,15 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         switch type {
         case .Origin:
             self.photo_view.image = self.photo_src;
-            println("photo_src info");
             self.showUIImageInfo(self.photo_src);
         case .Grayscale:
             self.photo_edit = OCV_Wrapper.ocvGrayConvert(self.photo_src);
             self.photo_view.image = self.photo_edit;
-            
-            println("photo_edit info");
             showUIImageInfo(self.photo_edit);
         default:
             println("Not exist type");
         }
         
-        println("photo_view info");
-        showUIImageInfo(self.photo_view.image);
     }
     
     func showUIImageInfo(img:UIImage!) {
