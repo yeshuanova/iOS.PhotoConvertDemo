@@ -31,9 +31,9 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="NfK-3x-0hy"/>
-                                    <barButtonItem title="Reset" id="PDh-64-8qp">
+                                    <barButtonItem title="Clear" id="PDh-64-8qp">
                                         <connections>
-                                            <action selector="resetPhoto:" destination="BYZ-38-t0r" id="orh-sJ-zFC"/>
+                                            <action selector="clearPhoto:" destination="BYZ-38-t0r" id="P83-k7-6By"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

@@ -55,8 +55,10 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         presentViewController(image_picker, animated: true, completion: nil);
     }
 
-    @IBAction func resetPhoto(sender: UIBarButtonItem) {
-        photo_view.image = photo_src;
+    @IBAction func clearPhoto(sender: UIBarButtonItem) {
+        photo_src = nil;
+        photo_edit = nil;
+        photo_view.image = nil;
     }
     
     @IBAction func openSwitchPicker(sender: UIBarButtonItem) {
