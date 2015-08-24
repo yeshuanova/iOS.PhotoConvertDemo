@@ -10,48 +10,14 @@
 #import "OCV_Wrapper.h"
 
 #include <opencv2/opencv.hpp>
-
 #include <vector>
+#include <thread>
 
 using namespace cv;
 using namespace std;
 
-@implementation OCV_Wrapper
-
-+ (UIImage*)ocvGrayConvert:(UIImage *)img {
-    
-    try {
-        
-        Mat img_mat = [OCV_Wrapper cvMatFromUIImage:img];
-        Mat conv_mat(img_mat.size(), CV_8UC1);
-        
-        cv::cvtColor(img_mat, conv_mat, cv::COLOR_RGB2GRAY);
-        
-        return [OCV_Wrapper UIImageFromCVMat:conv_mat];
-        
-    } catch (cv::Exception& e) {
-        cout << "cv::Exception: " << e.what() << endl;
-    } catch (std::exception& e) {
-        cout << "std::exception: " << e.what() << endl;
-    } catch (...) {
-        cout << "Unsupport Exception" << endl;
-    }
-
-    return nullptr;
-}
-
-+ (UIImage*)ocvBinaryConvert:(UIImage *)img threshhold:(float)value {
-    
-    return nullptr;
-}
-
-+ (void)ocv_test:(NSInteger)num {
-    NSLog(@"Call Wrapper with num - %ld", (long)num);
-}
-
-
-+ (cv::Mat)cvMatFromUIImage:(UIImage *)image {
-    
+cv::Mat cvMatFromUIImage(UIImage* image)
+{
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
     CGFloat cols = image.size.width;
     CGFloat rows = image.size.height;
@@ -73,7 +39,7 @@ using namespace std;
     return cvMat;
 }
 
-+ (UIImage *)UIImageFromCVMat:(cv::Mat)cvMat
+UIImage* UIImageFromCVMat(cv::Mat cvMat)
 {
     NSData *data = [NSData dataWithBytes:cvMat.data length:cvMat.elemSize()*cvMat.total()];
     CGColorSpaceRef colorSpace;
@@ -108,6 +74,48 @@ using namespace std;
     CGColorSpaceRelease(colorSpace);
     
     return finalImage;
+}
+
+
+
+void conv_color_thread(Mat src, Mat conv, ColorConversionCodes code)
+{
+    cv::cvtColor(src, conv, code);
+}
+
+UIImage* ocvColorConvert(UIImage* img, ColorConversionCodes code) {
+    try {
+        
+        Mat img_mat = cvMatFromUIImage(img);
+        Mat conv_mat(img_mat.size(), CV_8UC1);
+        
+        cv::cvtColor(img_mat, conv_mat, cv::COLOR_RGB2GRAY);
+        std::thread conv_t(conv_color_thread, img_mat, conv_mat, code);
+        conv_t.join();
+        
+        return UIImageFromCVMat(conv_mat);
+        
+    } catch (cv::Exception& e) {
+        cout << "cv::Exception: " << e.what() << endl;
+    } catch (std::exception& e) {
+        cout << "std::exception: " << e.what() << endl;
+    } catch (...) {
+        cout << "Unsupport Exception" << endl;
+    }
+    
+    return nullptr;
+}
+
+
+@implementation OCV_Wrapper
+
++ (UIImage*) ocvGrayConvert:(UIImage *)img {
+    return ocvColorConvert(img, cv::COLOR_RGB2GRAY);
+}
+
++ (UIImage*)ocvBinaryConvert:(UIImage *)img threshhold:(float)value {
+    
+    return nullptr;
 }
 
 @end
