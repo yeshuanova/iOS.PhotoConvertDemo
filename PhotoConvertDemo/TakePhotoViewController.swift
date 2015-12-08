@@ -21,7 +21,7 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
     var photo_edit : UIImage!
     var show_type : ShowType = .Origin
     
-    enum ShowType : Printable {
+    enum ShowType : CustomStringConvertible {
         case Origin
         case Grayscale
         
@@ -71,7 +71,7 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
     @IBAction func openSwitchPicker(sender: UIBarButtonItem) {
         
         if (nil == self.photo_src) {
-            println("Photo doesn't exist!");
+            print("Photo doesn't exist!");
             return;
         }
         
@@ -82,12 +82,12 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         };
         
         let origin_action: UIAlertAction = UIAlertAction(title: "Origin", style: UIAlertActionStyle.Default) { action -> Void in
-            println("Click original action button");
+            print("Click original action button");
             self.setPhotoWithType(ShowType.Origin);
         };
         
         let gray_action: UIAlertAction = UIAlertAction(title: "Grayscale", style:UIAlertActionStyle.Default) { action -> Void in
-            println("Click grayscale action button");
+            print("Click grayscale action button");
             self.setPhotoWithType(ShowType.Grayscale);
         };
         
@@ -103,7 +103,7 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         self.show_type = type;
         self.conv_btn.title = show_type.description;
         
-        println("Show \(type.description) image");
+        print("Show \(type.description) image");
         
         switch type {
         case .Origin:
@@ -114,14 +114,14 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
             self.photo_view.image = self.photo_edit;
             showUIImageInfo(self.photo_edit);
         default:
-            println("Not exist type");
+            print("Not exist type");
         }
         
     }
     
     func showUIImageInfo(img:UIImage!) {
         if nil != img {
-            println("Photo, width: \(img.size.width), height: \(img.size.height), orientation: \(img.imageOrientation.rawValue) ");
+            print("Photo, width: \(img.size.width), height: \(img.size.height), orientation: \(img.imageOrientation.rawValue) ");
         }
     }
 
@@ -135,12 +135,12 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
         image.drawInRect(rect)
         
-        var normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext();
         return normalizedImage;
     }
     
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
 
         picker.dismissViewControllerAnimated(true, completion: nil);
         photo_src = info[UIImagePickerControllerOriginalImage] as? UIImage;
