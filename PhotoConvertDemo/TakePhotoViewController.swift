@@ -135,7 +135,7 @@ class TakePhotoViewController: UIViewController, UINavigationControllerDelegate,
         let rect = CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height)
         image.drawInRect(rect)
         
-        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        let normalizedImage : UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext();
         return normalizedImage;
     }

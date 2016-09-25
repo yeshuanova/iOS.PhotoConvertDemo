@@ -193,9 +193,11 @@
 					C48E108D1B7DD9C3000FF533 = {
 						CreatedOnToolsVersion = 6.4;
 						DevelopmentTeam = 4L2622GP3G;
+						LastSwiftMigration = 0800;
 					};
 					C48E10A21B7DD9C3000FF533 = {
 						CreatedOnToolsVersion = 6.4;
+						LastSwiftMigration = 0800;
 						TestTargetID = C48E108D1B7DD9C3000FF533;
 					};
 				};
@@ -391,6 +393,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PhotoConvertDemo/PhotoConvertDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -409,6 +412,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PhotoConvertDemo/PhotoConvertDemo-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -427,6 +431,7 @@
 				INFOPLIST_FILE = PhotoConvertDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoConvertDemo.app/PhotoConvertDemo";
 			};
 			name = Debug;
@@ -442,6 +447,7 @@
 				INFOPLIST_FILE = PhotoConvertDemoTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PhotoConvertDemo.app/PhotoConvertDemo";
 			};
 			name = Release;
