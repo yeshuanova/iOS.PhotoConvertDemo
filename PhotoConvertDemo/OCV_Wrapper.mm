@@ -66,7 +66,7 @@ UIImage* UIImageFromCVMat(cv::Mat cvMat)
                                         kCGRenderingIntentDefault                   //intent
                                         );
     
-    
+
     // Getting UIImage from CGImage
     UIImage *finalImage = [UIImage imageWithCGImage:imageRef];
     CGImageRelease(imageRef);
@@ -77,13 +77,12 @@ UIImage* UIImageFromCVMat(cv::Mat cvMat)
 }
 
 
-
-void conv_color_thread(Mat src, Mat conv, ColorConversionCodes code)
+void conv_color_thread(Mat src, Mat conv, int code)
 {
     cv::cvtColor(src, conv, code);
 }
 
-UIImage* ocvColorConvert(UIImage* img, ColorConversionCodes code) {
+UIImage* ocvColorConvert(UIImage* img, int code) {
     try {
         
         Mat img_mat = cvMatFromUIImage(img);
